@@ -1,7 +1,7 @@
 label: Edison Agency
 
 # Admin
-admin: [0.0.0.0, 3001]
+admin: [ 0.0.0.0, 3001 ]
 admin-insecure-mode: true
 
 # Load toolbox plugin
@@ -10,11 +10,11 @@ plugin:
 plugin-config: ./configs/agency-redis.yml
 
 # Default endpoint, should be overriden by command or env
-endpoint: http://localhost:3000
+endpoint: http://localhost:3001
 
 # Transport (Plugin)
 inbound-transport:
-  - [redis_queue.v1_0.inbound, redis, 0]
+  - [ redis_queue.v1_0.inbound, redis, 0 ]
 outbound-transport: redis_queue.v1_0.outbound
 
 # Ledger
@@ -39,7 +39,7 @@ auto-ping-connection: true
 # auto-respond-credential-proposal: true
 # auto-respond-credential-offer: true
 # auto-respond-credential-request: true
-# 
+#
 # auto-respond-presentation-proposal: true
 # auto-respond-presentation-request: true
 # auto-verify-presentation: true

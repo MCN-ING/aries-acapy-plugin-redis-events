@@ -133,7 +133,7 @@ services:
       - WAIT_HOST_CONNECT_TIMEOUT=60
     networks:
       - acapy_default
-    command: start --arg-file ./configs/agency.yml --endpoint http://agency:3000
+    command: start --arg-file ./configs/agency.yml
 
   #*************************************************************
   # mediator: Edison Mediator.
