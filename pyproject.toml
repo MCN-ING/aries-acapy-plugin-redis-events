@@ -17,7 +17,7 @@ classifiers = [
 ]
 [tool.poetry.dependencies]
 python = "^3.6.9"
-aries-cloudagent = "^0.8.1"
+aries-cloudagent = "^0.8.2"
 ecdsa = "^0.16.1"
 redis = "^4.1.4"
 pydantic = "^1.8.2"

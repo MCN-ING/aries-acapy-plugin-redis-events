@@ -1,5 +1,7 @@
 FROM python:3.7-alpine AS base
 WORKDIR /usr/src/app
+
+
 RUN apk update && \
   apk add \
   build-base \
@@ -13,11 +15,13 @@ ENV POETRY_HOME=/opt/poetry \
   VENV=/usr/src/app/.venv
 ENV PATH="$POETRY_HOME/bin:$VENV/bin:$PATH"
 
-RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
+RUN curl -sSL https://install.python-poetry.org | python3 - --version 1.1.15
 RUN poetry config virtualenvs.create true; poetry config virtualenvs.in-project true
 
 COPY ./redis_relay/pyproject.toml ./redis_relay/poetry.lock ./
 RUN mkdir ./relay && touch ./relay/relay.py
+RUN pip install --upgrade pip
+RUN pip install cython
 RUN poetry install
 
 # Copy virtual environment into clean base

@@ -3,13 +3,13 @@ import base64
 import json
 
 import logging
+import aries_cloudagent
 
 from aries_cloudagent.transport.wire_format import BaseWireFormat
 from aries_cloudagent.core.profile import Profile
 from aries_cloudagent.transport.outbound.base import (
     BaseOutboundTransport,
     OutboundTransportError,
-    QueuedOutboundMessage,
 )
 from aries_cloudagent.transport.wire_format import (
     DIDCOMM_V0_MIME_TYPE,
@@ -69,7 +69,7 @@ class RedisOutboundQueue(BaseOutboundTransport):
     async def handle_message(
         self,
         profile: Profile,
-        outbound_message: QueuedOutboundMessage,
+        outbound_message,
         endpoint: str,
         metadata: dict = None,
         api_key: str = None,
