@@ -21,7 +21,6 @@ RUN poetry config virtualenvs.create true; poetry config virtualenvs.in-project 
 COPY ./redis_relay/pyproject.toml ./redis_relay/poetry.lock ./
 RUN mkdir ./relay && touch ./relay/relay.py
 RUN pip install --upgrade pip
-RUN pip install cython
 RUN poetry install
 
 # Copy virtual environment into clean base
