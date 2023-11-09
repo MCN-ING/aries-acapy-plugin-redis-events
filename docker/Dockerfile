@@ -1,4 +1,4 @@
-FROM bcgovimages/von-image:py36-1.16-1
+FROM ghcr.io/hyperledger/aries-cloudagent-python:py3.9-indy-1.16.0-0.10.4
 
 RUN pip3 install --no-cache-dir poetry
 
@@ -19,7 +19,7 @@ USER indy
 RUN poetry install --no-dev
 
 # Make site packages location more accessible (for use with volumes)
-RUN ln -s $(poetry env info -p)/lib/python3.6/site-packages site-packages
+RUN ln -s $(poetry env info -p)/lib/python3.9/site-packages site-packages
 
 COPY redis_queue redis_queue
 COPY ./docker/default.yml .
