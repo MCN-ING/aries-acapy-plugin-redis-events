@@ -1,4 +1,4 @@
-FROM python:3.7-alpine AS base
+FROM python:3.9-alpine AS base
 WORKDIR /usr/src/app
 
 
@@ -15,7 +15,7 @@ ENV POETRY_HOME=/opt/poetry \
   VENV=/usr/src/app/.venv
 ENV PATH="$POETRY_HOME/bin:$VENV/bin:$PATH"
 
-RUN curl -sSL https://install.python-poetry.org | python3 - --version 1.1.15
+RUN curl -sSL https://install.python-poetry.org | python3 -
 RUN poetry config virtualenvs.create true; poetry config virtualenvs.in-project true
 
 COPY ./redis_relay/pyproject.toml ./redis_relay/poetry.lock ./
@@ -24,7 +24,7 @@ RUN pip install --upgrade pip
 RUN poetry install
 
 # Copy virtual environment into clean base
-FROM python:3.7-alpine as main
+FROM python:3.9-alpine as main
 WORKDIR /usr/src/app
 COPY --from=base /usr/src/app /usr/src/app
 ENV PATH="/usr/src/app/.venv/bin:$PATH"
