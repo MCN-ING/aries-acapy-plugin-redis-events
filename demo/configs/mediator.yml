@@ -1,7 +1,7 @@
 label: Edison Mediator
 
 # Admin
-admin: [0.0.0.0, 3001]
+admin: [0.0.0.0, 3002]
 admin-insecure-mode: true
 
 # Load toolbox plugin
@@ -14,7 +14,7 @@ plugin-config-value:
   - redis_queue.outbound.mediator_mode=true
 
 # Default endpoint, should be overridden by command or env
-endpoint: http://localhost:3000
+endpoint: http://localhost:3002
 
 # Transport (Plugin)
 inbound-transport:
